@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Hotel Booking</title>
+ <style>
+  /* Add your CSS styles here */
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+
+  body {
+   font-family: Arial, sans-serif;
+   background-color: maroon;
+   margin: 0;
+  }
+
+  header {
+   background-color: white;
+   padding: 10px 0;
+   width: 100%;
+   z-index: 100;
+  }
+
+  .navbar {
+   max-width: 1200px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 20px;
+  }
+
+  .dropdown {
+   position: relative;
+   display: inline-block;
+  }
+
+  .dropbtn {
+   background-color: maroon;
+   color: #fff;
+   border: none;
+   padding: 10px 15px;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+  }
+
+  .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #fff;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+   z-index: 1;
+  }
+
+  .dropdown-content a {
+   color: #333;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+  }
+
+  .dropdown-content a:hover {
+   background-color: #FF5733;
+   color: #fff;
+  }
+
+  .dropdown:hover .dropdown-content {
+   display: block;
+  }
+
+  main {
+   text-align: center;
+   padding-top: 30px;
+  }
+
+
+  .button-wide {
+   background-color: maroon;
+   color: white;
+   border: none;
+   padding: 15px 40px;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+  }
+
+  footer {
+   background-color: sandybrown;
+   color: maroon;
+   padding: 20px 0;
+   text-align: center;
+  }
+
+  .footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+  }
+
+  .footer-content a {
+   color: #fff;
+   text-decoration: none;
+   margin: 0 10px;
+  }
+
+  .partners {
+   margin-top: 10px;
+  }
+
+  .hotel-container {
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin: 20px;
+  }
+
+  .hotel {
+   flex: 0 1 calc(33.33% - 20px);
+   background-color: white;
+   border-radius: 15px;
+   margin-bottom: 20px;
+   display: flex;
+  }
+
+  .hotel-image {
+   max-width: 220px;
+   height: auto;
+  }
+
+  .hotel-details {
+   padding: 10px;
+   width: 910px;
+  }
+
+  .hotel-action {
+   padding: 10px;
+   align-items: flex-end;
+  }
+
+  .hotel-name {
+   font-size: 30px;
+   font-family: 'Times New Roman';
+   margin: 10px;
+   text-align: justify;
+  }
+
+  .hotel-reviews {
+   margin: 10px;
+   font-size: 16px;
+   font-family: sans-serif;
+   text-align: justify;
+  }
+
+  .hotel-price {
+   font-size: 25px;
+   margin: 10px;
+   font-family: sans-serif;
+   text-align: right;
+  }
+
+  .per-night {
+   font-size: 14px;
+   margin: 10px;
+   font-family: sans-serif;
+   text-align: right;
+  }
+
+  .hotel-address {
+   margin: 10px;
+   font-size: 16px;
+   font-family: sans-serif;
+   text-align: justify;
+  }
+
+  .book-button {
+   background-color: maroon;
+   font-family: sans-serif;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   cursor: pointer;
+  }
+
+  .book-button:hover {
+   background-color: #0056b3;
+  }
+
+ .hotel-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hotel-popup img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+ </style>
+</head>
+
+<body>
+ <header>
+  <nav class="navbar">
+   <div class="logo">
+    <a href="./Home.html">
+     <img src="/PROJECT/IMAGES/LOGO.png" alt="Logo" height=100px></a>
+   </div>
+   <div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+     <a href="./Home.html">Home</a>
+     <a href="./hotels.html">Hotels</a>
+     <a href="./About.html">About Us</a>
+     <a href="./Login.html">Log Out</a>
+    </div>
+   </div>
+  </nav>
+ </header>
+
+ <main>
+  <h1 style="color: white;">Best Available Hotels!</h1>
+  <div class="hotel-container">
+   <div class="hotel">
+    <img class="hotel-image" src="/PROJECT/IMAGES/Hotel 1.jpg" alt="Hotel 1">
+    <div class="hotel-details">
+     <h2 class="hotel-name">The Oberoi</h2><br>
+     <p class="hotel-address">Address:Dr Zakir Hussain Marg, Delhi Golf Club, Golf Links, <br>New Delhi, Delhi
+      110003•011 2436 3030
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733&#9733&#9733&#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 12,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 1">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup1">
+        <div class="hotel-details">
+            <h2 class="hotel-name">The Oberoi</h2>
+            <p class="hotel-address">Address: Dr Zakir Hussain Marg, Delhi Golf Club, Golf Links, <br>New Delhi, Delhi 110003•011 2436 3030</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for The Oberoi</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 1 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 1 - Image 2">
+            <!-- Add more images for The Oberoi here -->
+        </div>
+    </div>
+    </div>
+   </div>
+<!-- JavaScript for Hotel 1 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+
+   <div class="hotel">
+    <img class="hotel-image" src="/PROJECT/IMAGES/Hotel2.jpg" alt="Hotel 2">
+    <div class="hotel-details">
+        <h2 class="hotel-name">Hyatt Regency Delhi</h2><br>
+        <p class="hotel-address">Address: Ring Rd, Bhikaji Cama Place, Rama Krishna Puram,<br> New Delhi, Delhi 110066•011 2679 1234</p>
+        <p class="hotel-reviews">Reviews: &#9733&#9733&#9733&#9733</p>
+    </div>
+    <div class="hotel-action">
+        <p class="hotel-price"><b>&#8377 7,999</b></p>
+        <p class="per-night">per night</p>
+        <br><br><br>
+        <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 2">Book This Hotel</button></a>
+    </div>
+    <div class="hotel-popup" id="hotelPopup2">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hyatt Regency Delhi</h2>
+            <p class="hotel-address">Address: Ring Rd, Bhikaji Cama Place, Rama Krishna Puram,<br> New Delhi, Delhi 110066•011 2679 1234</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 2</h3>
+            <img src="/PROJECT/IMAGES/Hotel2-1.jpg" alt="Hotel 2 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel2-2.jpg" alt="Hotel 2 - Image 2">
+            <!-- Add more images for Hotel 2 here -->
+        </div>
+    </div>
+    </div>
+</div>
+<!-- JavaScript for Hotel 2 -->
+<script>
+    const hotelImage2 = document.querySelector('.hotel-image');
+    const hotelPopup2 = document.getElementById('hotelPopup2');
+
+    hotelImage2.addEventListener('mouseover', function () {
+        hotelPopup2.style.display = 'block';
+    });
+
+    hotelImage2.addEventListener('mouseout', function () {
+        hotelPopup2.style.display = 'none';
+    });
+</script>
+
+
+   <div class="hotel">
+    <img class="hotel-image" src="/PROJECT/IMAGES/Hotel 3.jpg" alt="Hotel 3">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Radisson Blu Hotel</h2><br>
+     <p class="hotel-address">Address: Plot 4, Centre, Sector 13, Dwarka, <br> New Delhi, Delhi, 110075•011 3090 8000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733&#9733&#9733&#9733 </p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 9,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 3">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup3">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 3</h2>
+            <p class="hotel-address">Address: Address: Plot 4, Centre, Sector 13, Dwarka, <br> New Delhi, Delhi, 110075•011 3090 8000</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 2</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 3 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 3 - Image 2">
+            <!-- Add more images for Hotel 3 here -->
+        </div>
+    </div>
+   </div>
+</div>
+   <div class="hotel">
+<!-- JavaScript for Hotel 3 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+
+    <img class="hotel-image" src="/PROJECT/IMAGES/Hotel 4.jpg" alt="Hotel 4">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Le Meridien</h2><br>
+     <p class="hotel-address">Address: Le Meridien, Windsor Pl, Connaught Place, <br>New Delhi, Delhi 110001•011 2371
+      0101</p>
+     <p class="hotel-reviews">Reviews: &#9733&#9733&#9733&#9733&#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 11,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 4">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup4">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 4</h2>
+            <p class="hotel-address">Address: Le Meridien, Windsor Pl, Connaught Place, <br>New Delhi, Delhi 110001•011 2371
+      0101</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 2</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 4 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 4 - Image 2">
+            <!-- Add more images for Hotel 4 here -->
+        </div>
+    </div>
+   </div>
+</div>
+<!-- JavaScript for Hotel 4 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+   <div class="hotel">
+    <img class="hotel-image" src="/PROJECT/IMAGES/Hotel 5.jpg" alt="Hotel 5">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Seven Seas Hotel</h2><br>
+     <p class="hotel-address">Address: 12, M2K Rd, Mangalam Place, Sector 3, Rohini, <br>New Delhi, Delhi, 110085•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 8,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 5">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup5">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 5</h2>
+            <p class="hotel-address">Address: 12, M2K Rd, Mangalam Place, Sector 3, Rohini, <br>New Delhi, Delhi, 110085•011
+      4340 0000</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 2</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 5 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 5 - Image 2">
+            <!-- Add more images for Hotel 5 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 5 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+   <div class="hotel">
+    <img class="hotel-image" src=" " alt="Hotel 6">
+    <div class="hotel-details">
+     <h2 class="hotel-name">The Prime</h2><br>
+     <p class="hotel-address">2352-54 Chuna Mandi, Paharganj, <br>New Delhi, Delhi, 110055•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 9,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 6">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup6">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 6</h2>
+            <p class="hotel-address">Address: 2352-54 Chuna Mandi, Paharganj, <br>New Delhi, Delhi, 110055•011
+      4340 0000</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 2</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 6 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 6 - Image 2">
+            <!-- Add more images for Hotel 6 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 6 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+
+   <div class="hotel">
+    <img class="hotel-image" src=" " alt="Hotel 7">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Hotel Bricks</h2><br>
+     <p class="hotel-address">Faiz Road, Karol bagh <br>New Delhi, Delhi, 110055•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 4,999</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 7">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup7">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 7</h2>
+            <p class="hotel-address">Address: 2352-54 Chuna Mandi, Paharganj, <br>New Delhi, Delhi, 110055•011
+      4340 0000</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 7</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 7 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 7 - Image 2">
+            <!-- Add more images for Hotel 7 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 7 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+   <div class="hotel">
+    <img class="hotel-image" src=" " alt="Hotel 8">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Pride Plaza</h2><br>
+     <p class="hotel-address">5-A, Hospitality District, Aerocity, Indra Gandhi International Airport<br>New Delhi, Delhi, 110037•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 11,499</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 8">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup8">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 8</h2>
+            <p class="hotel-address">Address: 5-A, Hospitality District, Aerocity, Indra Gandhi International Airport<br>New Delhi, Delhi, 110037•011
+      4340 0000</p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 7</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 7 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 7 - Image 2">
+            <!-- Add more images for Hotel 8 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 8 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+   <div class="hotel">
+    <img class="hotel-image" src=" " alt="Hotel 9">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Hotel Bluestone</h2><br>
+     <p class="hotel-address">CC 24, Nehru Enclave, Kalka Ji Opp. Paras Cinema Nehru Place<br>New Delhi, Delhi, 110019•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 7,499</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 9">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup9">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 9</h2>
+            <p class="hotel-address">Address: CC 24, Nehru Enclave, Kalka Ji Opp. Paras Cinema Nehru Place<br>New Delhi, Delhi, 110019•011
+      4340 0000 </p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 7</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 7 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 7 - Image 2">
+            <!-- Add more images for Hotel 9 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 9 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+   <div class="hotel">
+    <img class="hotel-image" src=" " alt="Hotel 10">
+    <div class="hotel-details">
+     <h2 class="hotel-name">Four Points by Sheraton</h2><br>
+     <p class="hotel-address">Plot # 9, Samalka, National Highway- 8<br>New Delhi, Delhi, 110037•011
+      4340 0000
+     </p>
+     <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+    </div>
+    <div class="hotel-action">
+     <p class="hotel-price"><b>&#8377 9,499</b></p>
+     <p class="per-night">per night</p>
+     <br><br><br>
+     <a href="./payment.html" ><button class="book-button" data-hotel="Hotel 10">Book This Hotel</button></a>
+<div class="hotel-popup" id="hotelPopup10">
+        <div class="hotel-details">
+            <h2 class="hotel-name">Hotel 10</h2>
+            <p class="hotel-address">Address: Plot # 9, Samalka, National Highway- 8<br>New Delhi, Delhi, 110037•011
+      4340 0000 </p>
+            <p class="hotel-reviews">Reviews: &#9733 &#9733 &#9733 &#9733</p>
+            <h3>Additional Images for Hotel 7</h3>
+            <img src="/PROJECT/IMAGES/Hotel1-1.jpg" alt="Hotel 7 - Image 1">
+            <img src="/PROJECT/IMAGES/Hotel1-2.jpg" alt="Hotel 7 - Image 2">
+            <!-- Add more images for Hotel 10 here -->
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- JavaScript for Hotel 10 -->
+    <script>
+        const hotelImage1 = document.querySelector('.hotel-image:nth-child(1)');
+        const hotelPopup1 = document.getElementById('hotelPopup1');
+
+        hotelImage1.addEventListener('mouseover', function () {
+            hotelPopup1.style.display = 'block';
+        });
+
+        hotelImage1.addEventListener('mouseout', function () {
+            hotelPopup1.style.display = 'none';
+        });
+    </script>
+  </div>
+ </main>
+
+ <footer>
+  <div class="footer-content">
+   <div class="copyright">
+    &copy; 2023 PG Accommodation. All rights reserved.
+   </div>
+   <div class="partners">
+    Partner Organizations:
+    <a href="https://www.makemytrip.com/" target="_blank">Make My Trip</a>,
+    <a href="https://www.trivago.in/" target="_blank">Trivago</a>,
+    <a href="https://www.agoda.com/?cid=1844104" target="_blank">Agoda</a>
+   </div>
+   <div class="contact">
+    <a href="./About.html" >Contact Us</a>
+ 
+   </div>
+  </div>
+ </footer>
+
+</body>
+
+</html>
